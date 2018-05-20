@@ -60,7 +60,7 @@ export class SeatsComponent implements OnInit {
   }
 
   renderSeatArrangement() {
-    let seatsArrangement = [];
+    let seatsArrangementInitial: any = [];
     for(var i = 0; i < this.noOfRows; i++) {
       var row = String.fromCharCode(65 + i);
       var seat = {};
@@ -74,9 +74,9 @@ export class SeatsComponent implements OnInit {
         seatData['selected'] = false;
         seat['seatsIndex'].push(seatData);
       }
-      seatsArrangement.push(seat);
+      seatsArrangementInitial.push(seat);
     }
-    this.checkForReservedSeats(seatsArrangement);
+    this.checkForReservedSeats(seatsArrangementInitial);
   }
 
   checkForReservedSeats(data: any) {
