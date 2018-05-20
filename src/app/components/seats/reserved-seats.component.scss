@@ -1,0 +1,75 @@
+.reserved-seats-container{
+  max-width: 80%;
+  box-sizing: border-box;
+  padding: 1em;
+  margin: 0 auto;
+  text-align: center;
+  .reserved-seats-content{
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 10%;
+    table{
+      tr{
+        border: 1px solid #999;
+        td, th{
+          padding: 1em;
+          text-align: center;
+          vertical-align: middle;
+          border: 1px solid #999;
+        }
+      }
+    }
+  }
+  .spanText{
+    font-size: 1em;
+    color: #333;
+    display: inline-block;
+    vertical-align: middle;
+    text-transform: uppercase;
+  }
+  .spanBox{
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 1em;
+    border-radius: 4px;
+  }
+  .seats-info{
+    display: inline-block;
+    vertical-align: top;
+    div{
+      margin: 1em 0;
+      &:nth-child(1){
+        span:first-child{
+          @extend .spanBox;
+          background-color: green;
+          border: 1px solid green;
+        }
+        span:last-child{
+          @extend .spanText;
+        }
+      }
+      &:nth-child(2){
+        span:first-child{
+          @extend .spanBox;
+          background-color: red;
+          border: 1px solid red;
+        }
+        span:last-child{
+          @extend .spanText;
+        }
+      }
+      &:nth-child(3){
+        span:first-child{
+          @extend .spanBox;
+          background-color: #fff;
+          border: 1px solid #999;
+        }
+        span:last-child{
+          @extend .spanText;
+        }
+      }
+    }
+  }
+}

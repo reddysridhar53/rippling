@@ -1,0 +1,35 @@
+<div class="reserved-seats-container">
+  <div class="reserved-seats-content">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>No. Of Seats</th>
+          <th>Seats</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let seat of reservedSeats; let i = index;">
+          <td>{{seat.name}}</td>
+          <td>{{seat.seatsReserved}}</td>
+          <td>
+            <span *ngFor="let seatNo of seat.seats; let j = index;">
+              {{j === seat.seats.length - 1 ? seatNo.target : seatNo.target+','}}
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="seats-info">
+    <div>
+      <span></span><span>Selected seat</span>
+    </div>
+    <div>
+        <span></span><span>Reserved seat</span>
+    </div>
+    <div>
+        <span></span><span>Empty seat</span>
+    </div>
+  </div>
+</div>

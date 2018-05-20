@@ -1,0 +1,29 @@
+<div class="seats-container">
+  <div class="screen">
+    screen
+  </div>
+  <div class="seats-container-inner">
+    <div class="seats-content">
+      <div class="seat-row" *ngFor="let seat of seatsArrangement; let i = index">
+        <div *ngIf="i === 4" class="row-gap">
+          &nbsp;&nbsp;
+        </div>
+        {{seat.row}}
+        <div class="main-col" *ngFor="let seatCol of seat.seatsIndex; let j = index;">
+          <div class="seat-col" (click)="seatCol.reserved ? '' : selectSeat(seatCol)" [ngClass]="seatCol.reserved ? 'reserved' : seatCol.selected ? 'selected' : '' ">
+            {{j+1}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="seats-action">
+    <button class="confirm-booking" (click)="confirmBooking()">confirm booking</button>
+  </div>
+  <div class="reserved-seats">
+
+  </div>
+</div>
+<div *ngIf="showSeatsReserved">
+  <reserved-seats></reserved-seats>
+</div>

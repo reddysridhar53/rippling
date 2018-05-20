@@ -1,0 +1,95 @@
+$bgColor : #fff;
+$mainColor: #444;
+$fontFamily: 'Open sans', sans-serif;
+$fontSize: 15px;
+#inputSesction{
+  width: 100%;
+  text-align: center;
+  font-family: $fontFamily;
+  font-size: $fontSize;
+  &.allowed{
+    .input-container{
+      padding: 0 10%;
+    }
+  }
+  &.not-allowed{
+    .input-container{
+      padding: 10%;
+    }
+  }
+  .input-container{
+    width: 80%;
+    margin: 0 auto;
+    transition: 1s padding ease-in;
+    h2{
+      font-weight: bold;
+      text-transform: uppercase;
+      margin: 1em auto;
+    }
+    .inputFields{
+      display: inline-block;
+      vertical-align: middle;
+      input{
+        border: none;
+        height: 3em;
+        border-bottom: 1px solid #ddd;
+        outline: none;
+        box-sizing: border-box;
+        padding-left: 1em;
+        color: $mainColor;
+      }
+    }
+    .input-name{
+      @extend .inputFields;
+      width: 58%;
+      margin-right: 1.5%;
+      input{
+        width: 60%;
+      }
+    }
+    .input-seats{
+      @extend .inputFields;
+      width: 40%;
+      input{
+        max-width: 100px;
+      }
+    }
+    .input-error{
+      color: red;
+      font-size: 0.9em;
+      transition: 1s opacity ease-in-out;
+      margin: 0.4em 0;
+    }
+    .input-action{
+      margin-top: 2em;
+      button{
+        border-radius: 4px;
+        color: #fff;
+        padding: 1em;
+        font-size: 1em;
+        outline: none;
+        text-transform: uppercase;
+        font-weight: normal;
+        transition: 1s all ease-in-out;
+        cursor: pointer;
+        border: none;
+        &:first-child{
+          background: #f1f1f1;
+          margin-right: 1em;
+          color: #444;
+        }
+        &:last-child{
+          background: #009688;
+        }
+        &:hover{
+          opacity: 0.8;
+        }
+        &.disabled{
+          pointer-events: none;
+          cursor: not-allowed;
+          opacity: 0.6;
+        }
+      }
+    }
+  }
+}

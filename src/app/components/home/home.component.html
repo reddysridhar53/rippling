@@ -1,0 +1,23 @@
+<section id="inputSesction" [ngClass]="allowReservation ? 'allowed' : 'not-allowed' " >
+  <div class="input-container">
+    <h2>Movie seat reservation system</h2>
+    <div class="input-name">
+      <span>Name: </span>
+      <input type="text" class="name" placeholder="Enter your name" [(ngModel)]="userName" disabled="{{allowReservation}}">
+    </div>
+    <div class="input-seats">
+      <span>Number of seats: </span>
+      <input type="number" class="noofseats" placeholder="seats" [(ngModel)]="noOfSeats" disabled="{{allowReservation}}">
+    </div>
+    <div *ngIf="inputError" class="input-error">
+      {{errorMessage}}
+    </div>
+    <div class="input-action">
+      <button (click)="resetSelection()" [ngClass]="{'disabled' : !allowReservation}">Reset</button>
+      <button (click)="allowSeatReservation()" [ngClass]="{'disabled' : allowReservation}">start selecting</button>
+    </div>
+  </div>
+</section>
+<section *ngIf="allowReservation">
+  <seats-arena [nameEntered]="userName" [seatsEntered]="noOfSeats"></seats-arena>
+</section>
